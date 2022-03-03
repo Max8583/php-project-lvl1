@@ -1,0 +1,15 @@
+{
+    "name": "max/php-project-lvl1",
+    "autoload": {
+        "psr-4": {
+            "Max\\PhpProjectLvl1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Max8583",
+            "email": "vlasov-maksim@mail.ru"
+        }
+    ],
+    "require": {}
+}
