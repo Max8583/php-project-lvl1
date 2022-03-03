@@ -1,5 +1,10 @@
 {
     "name": "max/php-project-lvl1",
+    "description": "test",
+    "license": "MIT",
+    "bin": [
+        "bin/brain-games"
+      ],
     "autoload": {
         "psr-4": {
             "Max\\PhpProjectLvl1\\": "src/"
@@ -12,4 +17,5 @@
         }
     ],
     "require": {}
+    
 }
