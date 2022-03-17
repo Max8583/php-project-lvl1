@@ -1,0 +1,38 @@
+<?php
+
+namespace BrainGames\games\Gcd;
+
+use function BrainGames\Engine\play;
+
+function games()
+{
+    $string = 'Find the greatest common divisor of given numbers.';
+
+    $question = function ()
+    {
+    $number1 = rand(1, 100);
+    $number2 = rand(1, 100);
+
+        return "{$number1} {$number2}";
+    };
+    function NOD($a, $b)
+{
+    while ($a != $b)
+    {
+        if ($a > $b) $a =  $a - $b;
+        else $b = $b - $a;
+    }
+    return $b;
+}
+
+    $getRightAnswer = function ($question)
+    {
+        list($number1, $number2) = explode(' ', $question);
+
+       return NOD($number1, $number2);
+        
+    };
+    
+
+    play($string, $question, $getRightAnswer);
+}
