@@ -1,0 +1,21 @@
+<?php
+
+namespace BrainGames\games\Braineven;
+
+use function BrainGames\Engine\play;
+
+function games()
+{
+
+    $question = function () {
+        return rand(1, 100);
+    };
+
+    $getRightAnswer = function ($number) {
+        $result = $number % 2 == 0;
+         return $result ? "yes" : "no";
+    };
+    $string = 'Answer "yes" if number even otherwise answer "no"';
+
+    play($string, $question, $getRightAnswer);
+}

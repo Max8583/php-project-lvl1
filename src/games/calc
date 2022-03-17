@@ -1,0 +1,42 @@
+<?php
+
+namespace BrainGames\games\calc;
+
+use function BrainGames\Engine\play;
+
+function games()
+{
+    $string = 'What is the result of the expression?';
+
+    $question = function ()
+    {
+    $number1 = rand(1, 100);
+    $number2 = rand(1, 100);
+    $oprators = ['+', '-', '*'];
+    $oprator = $oprators[array_rand($oprators)];
+
+        return "{$number1} {$oprator} {$number2}";
+    };
+
+    $getRightAnswer = function ($question)
+    {
+        list($number1, $question, $number2) = explode(' ', $question);
+
+        switch ($question){
+            case '+':
+            return $number1 + $number2;
+            break;
+
+            case '-':
+            return $number1 - $number2;
+            break;
+
+            case '*':
+            return $number1 * $number2;
+            break;
+        }
+    };
+    
+
+    play($string, $question, $getRightAnswer);
+}

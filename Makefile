@@ -8,4 +8,6 @@ lint:
 	composer run-script phpcs -- --standard=PSR2 src bin
 brain-even:
 	./bin/brain-even
+brain-calc:
+	./bin/brain-calc
 	
