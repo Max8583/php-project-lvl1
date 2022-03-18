@@ -8,23 +8,26 @@ use function cli\line;
 function games()
 {
     $string = 'What number is missing in the progression?';
-
+    
     $question = function ()
     {
+        global $i;
+        $i = rand(1, 10);
+        global $oprator;
+        $oprator = rand(1, 10);
     $number1 = rand(1, 10);
     $number2 = 100;
-    $oprator = rand(1, 10);
     $question1 = range($number1,$number2,$oprator);
-    $question1[5] = "..";
+    $question1[$i] = "..";
     $question = array_splice($question1, 0, 10);
         return implode(" ",$question);
     };
     $getRightAnswer = function ($question): int
     { 
+        global $i;
+        global $oprator;
     $question1 = explode(" ", $question);
-    $n1 = $question1[1];
-    $n2 = $question1[2];
-    $result = $n2 - $n1 + $question1[4];
+    $result = $oprator + $question1[$i - 1];
         return $result;
     };
 
