@@ -1,0 +1,32 @@
+<?php
+
+namespace BrainGames\games\Progression;
+
+use function BrainGames\Engine\play;
+use function cli\line;
+
+function games()
+{
+    $string = 'What number is missing in the progression?';
+
+    $question = function ()
+    {
+    $number1 = rand(1, 10);
+    $number2 = 100;
+    $oprator = rand(1, 10);
+    $question1 = range($number1,$number2,$oprator);
+    $question1[5] = "..";
+    $question = array_splice($question1, 0, 10);
+        return implode(" ",$question);
+    };
+    $getRightAnswer = function ($question): int
+    { 
+    $question1 = explode(" ", $question);
+    $n1 = $question1[1];
+    $n2 = $question1[2];
+    $result = $n2 - $n1 + $question1[4];
+        return $result;
+    };
+
+    play($string, $question, $getRightAnswer);
+}
